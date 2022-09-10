@@ -1,12 +1,14 @@
 import { Routes, Route, Link } from "react-router-dom";
 
-import Landing from './component/Landing';
-import List from './component/List';
-import Form from './component/Form';
-import RideInfo from './component/RideInfo';
-import './App.css';
+import Landing from "./component/Landing";
+import List from "./component/List";
+import Form from "./component/Form";
+import "./css/layout.css";
+import "./css/form.css";
+import RideInfo from "./component/RideInfo";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <nav>
@@ -23,6 +25,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;
