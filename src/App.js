@@ -8,7 +8,7 @@ import "./css/form.css";
 import RideInfo from "./component/RideInfo";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <nav>
@@ -25,6 +25,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;
