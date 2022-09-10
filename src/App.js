@@ -4,7 +4,7 @@ import Landing from "./component/Landing";
 import List from "./component/List";
 import Form from "./component/Form";
 import "./css/layout.css";
-import "./App.css";
+import "./css/form.css";
 
 function App() {
   return (

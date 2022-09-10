@@ -45,8 +45,10 @@ select {
   --col-background-sec: hsl(0, 0%, 100%);
   --col-background-tri: hsl(240, 9%, 91%);
 
-  --col-acc-prmy: hsl(211, 28%, 32%);
-  --col-acc-sec: hsl(4, 94%, 74%);
+  --col-acc-prmy: hsl(145, 32%, 63%);
+  --col-acc-sec: hsl(129, 90%, 88%);
+  --col-acc-tri: hsl(4, 94%, 74%);
+  --col-acc-four: hsl(211, 28%, 32%);
   /* box Shadows */
   --box-shadow: 18px 14px 33px -7px rgba(0, 0, 0, 0.07);
 }
@@ -78,9 +80,5 @@ body {
     --fs-sec: 1.25rem;
     --fs-tri: 1.75rem;
     --fs-four: 2.5rem;
-  }
-
-  .App {
-    flex-direction: row;
   }
 }

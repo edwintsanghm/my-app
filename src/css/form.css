@@ -1,0 +1,93 @@
+.DriverSection {
+  min-width: 500px;
+  margin: 0 auto;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid red;
+
+  border-radius: 10px;
+}
+
+.title {
+  font-size: var(--fs-four);
+  font-weight: var(--fw-tri);
+}
+
+.passengerLocation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.LocationFinder {
+  margin: 3em 0;
+  display: grid;
+  gap: 2.5em;
+
+  width: 100%;
+}
+
+.paggengerLocation__input {
+  background-color: var(--col-background-prmy);
+
+  display: flex;
+  gap: 0.55em;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.paggengerLocation__inputClose {
+  font-size: 1.25rem;
+}
+
+.paggengerLocation__inputImg {
+  font-size: 1.55em;
+}
+
+.paggengerLocation__inputText {
+  padding: 0.25em;
+  width: 100%;
+
+  flex: 1;
+
+  border: none;
+  border-bottom: 1px solid var(--col-acc-four);
+  background-color: var(--col-background-prmy);
+}
+
+.paggengerLocation__input:first-child > .paggengerLocation__inputImg {
+  color: var(--col-acc-prmy);
+}
+
+.paggengerLocation__input:last-child > .paggengerLocation__inputImg {
+  color: var(--col-acc-tri);
+}
+
+.paggengerLocation__inputClose {
+  cursor: pointer;
+}
+
+.submitBtn {
+  border: none;
+  padding: 0.55em 1em;
+  border-radius: 5px;
+  width: max-content;
+  align-self: flex-end;
+
+  background-color: var(--col-acc-prmy);
+  color: var(--col-text-sec);
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.submitBtn:hover {
+  background-color: var(--col-background-prmy);
+  outline: 2px solid var(--col-acc-prmy);
+  color: var(--col-text-prmy);
+}
