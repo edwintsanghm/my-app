@@ -19,20 +19,24 @@ import Avatar from '@mui/material/Avatar';
 
 const availableRides = [
     {
-        info: {avatarUrl: faker.image.avatar(), name: faker.name.firstName(), gender:"gender", from: "Markham", to: "18 York Street", workday:[1,2,3,4,5], eta: "9:00 am", rating: 4},
-        carInfo: {model: "model", make: "Toyota", number: "CXR004", seats: 4, freeSeats: 4},  
+        info: {avatarUrl: "https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg", name: faker.name.firstName(), gender:"gender", from: "Markham", to: "18 York Street", workday:[1,2,3,4,5], eta: "9:00 am", rating: 4},
+        carInfo: {model: "model", make: "Toyota", number: "CXR004", seats: 4, freeSeats: 2},  
+        price: 10
     },
     {
         info: {avatarUrl: faker.image.avatar(), name: faker.name.firstName(), gender:"gender", from: "700 Markham Road", to: "25 York Street", workday:[1,2,4,5], eta: "9:10 am", rating: 5},
         carInfo: {model: "model", make: "Honda", number: "XVE999", seats: 5, freeSeats: 2},  
+        price: 14
     },
     {
         info: {avatarUrl: faker.image.avatar(), name: faker.name.firstName(), gender:"gender", from: "900 Markham Road", to: "30 York Street", workday:[2,4,5], eta: "9:30 am", rating: 5},
         carInfo: {model: "model", make: "Subaru", number: "VZP204", seats: 4, freeSeats: 3},  
+        price: 18
     },
     {
         info: {avatarUrl: faker.image.avatar(), name: faker.name.firstName(), gender:"gender", from: "900 Markham Road", to: "30 King Street", workday:[2,4,5,6,7], eta: "8:40 am", rating: 5},
         carInfo: {model: "model", make: "Subaru", number: "VZP804", seats: 4, freeSeats: 1},  
+        price: 10
     }
 ];
 
