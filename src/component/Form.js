@@ -8,6 +8,7 @@ const Form = () => {
   const [userInput, setUserInput] = useState({
     startLocation: "",
     endLocation: "",
+    userMode: "",
   });
   const navigate = useNavigate();
   const onSubmit = (e) => {
@@ -45,6 +46,11 @@ const Form = () => {
             />
             <MdClose className="paggengerLocation__inputClose" />
           </div>
+        </div>
+
+        <div className="drivingMode">
+          <button className="drivingMode__Btn">Driver</button>
+          <button className="drivingMode__Btn">Passenger</button>
         </div>
         <input type="submit" className="submitBtn" value="Continue" />
       </form>

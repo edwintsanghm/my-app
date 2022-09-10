@@ -72,6 +72,31 @@
   cursor: pointer;
 }
 
+.drivingMode {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+.drivingMode__Btn {
+  border: none;
+  padding: 0.55em 1em;
+  border-radius: 5px;
+  width: max-content;
+
+  background-color: var(--col-acc-prmy);
+  color: var(--col-text-sec);
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.drivingMode__Btn:hover {
+  background-color: var(--col-background-prmy);
+  outline: 2px solid var(--col-acc-prmy);
+  color: var(--col-text-prmy);
+}
+
 .submitBtn {
   border: none;
   padding: 0.55em 1em;
