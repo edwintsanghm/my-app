@@ -4,6 +4,8 @@ import { MdClose } from "react-icons/md";
 
 import { useNavigate } from "react-router";
 
+import Citywalk from "../imgs/cityWalk.svg";
+
 const Form = () => {
   const [userInput, setUserInput] = useState({
     startLocation: "",
@@ -16,45 +18,52 @@ const Form = () => {
     navigate("/list");
   };
   return (
-    <section className="DriverSection">
-      <p className="title">Find your RideAway</p>
-      <form className="passengerLocation" onSubmit={onSubmit}>
-        <div className="LocationFinder">
-          <div className="paggengerLocation__input">
-            <GoLocation className="paggengerLocation__inputImg" />
-            <input
-              type="text"
-              className="paggengerLocation__inputText"
-              value={userInput.startLocation}
-              onChange={(e) =>
-                setUserInput({ ...userInput, startLocation: e.target.value })
-              }
-              required
-            />
-            <MdClose className="paggengerLocation__inputClose" />
+    <>
+      <section className="formHeader">
+        <p className="formHeader__title">Find your RideAway</p>
+        <img src={Citywalk} alt="city walk" className="formHeader__Img" />
+      </section>
+      <section className="DriverSection">
+        <form className="passengerLocation" onSubmit={onSubmit}>
+          <div className="LocationFinder">
+            <div className="paggengerLocation__input">
+              <GoLocation className="paggengerLocation__inputImg" />
+              <input
+                type="text"
+                className="paggengerLocation__inputText"
+                value={userInput.startLocation}
+                placeholder="Starting location"
+                onChange={(e) =>
+                  setUserInput({ ...userInput, startLocation: e.target.value })
+                }
+                required
+              />
+              <MdClose className="paggengerLocation__inputClose" />
+            </div>
+            <div className="paggengerLocation__input">
+              <GoLocation className="paggengerLocation__inputImg" />
+              <input
+                type="text"
+                className="paggengerLocation__inputText"
+                value={userInput.endLocation}
+                placeholder="Ending Location"
+                onChange={(e) =>
+                  setUserInput({ ...userInput, endLocation: e.target.value })
+                }
+                required
+              />
+              <MdClose className="paggengerLocation__inputClose" />
+            </div>
           </div>
-          <div className="paggengerLocation__input">
-            <GoLocation className="paggengerLocation__inputImg" />
-            <input
-              type="text"
-              className="paggengerLocation__inputText"
-              value={userInput.endLocation}
-              onChange={(e) =>
-                setUserInput({ ...userInput, endLocation: e.target.value })
-              }
-              required
-            />
-            <MdClose className="paggengerLocation__inputClose" />
-          </div>
-        </div>
 
-        <div className="drivingMode">
-          <button className="drivingMode__Btn">Driver</button>
-          <button className="drivingMode__Btn">Passenger</button>
-        </div>
-        <input type="submit" className="submitBtn" value="Continue" />
-      </form>
-    </section>
+          <div className="drivingMode">
+            <button className="drivingMode__Btn">Driver</button>
+            <button className="drivingMode__Btn">Passenger</button>
+          </div>
+          <input type="submit" className="submitBtn" value="Continue" />
+        </form>
+      </section>
+    </>
   );
 };
 
