@@ -6,19 +6,34 @@ import { useNavigate } from "react-router";
 
 import Citywalk from "../imgs/cityWalk.svg";
 
+import Loading from "./Loading";
+
 const Form = () => {
   const [userInput, setUserInput] = useState({
     startLocation: "",
     endLocation: "",
     userMode: "",
   });
+  const [showLoading, setShowLoading] = useState(false);
+
+
   const navigate = useNavigate();
   const onSubmit = (e) => {
+
     e.preventDefault();
-    navigate("/list");
+    
+    setShowLoading(true);
+    
+    setTimeout(() => {
+      navigate("/list");
+    }, 3500)
+
   };
   return (
+    
     <>
+      {showLoading && <Loading/>}
+      {!showLoading && <>
       <section className="formHeader">
         <p className="formHeader__title">Find your RideAway</p>
         <img src={Citywalk} alt="city walk" className="formHeader__Img" />
@@ -63,6 +78,8 @@ const Form = () => {
           <input type="submit" className="submitBtn" value="Continue" />
         </form>
       </section>
+      </>
+      }
     </>
   );
 };
