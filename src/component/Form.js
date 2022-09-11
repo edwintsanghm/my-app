@@ -26,7 +26,7 @@ const Form = () => {
     
     setTimeout(() => {
       navigate("/list");
-    }, 3500)
+    }, 1000)
 
   };
   return (
@@ -72,10 +72,10 @@ const Form = () => {
           </div>
 
           <div className="drivingMode">
-            <button className="drivingMode__Btn">Driver</button>
-            <button className="drivingMode__Btn">Passenger</button>
+            <button type="submit" className="drivingMode__Btn">Driver</button>
+            <button type="submit" className="drivingMode__Btn">Passenger</button>
           </div>
-          <input type="submit" className="submitBtn" value="Continue" />
+          {/* <input type="submit" className="submitBtn" value="Continue" /> */}
         </form>
       </section>
       </>

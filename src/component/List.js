@@ -13,6 +13,8 @@ import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import {BsFilterCircle} from "react-icons/bs"
+
 /*
     List in Driver View
     - Your Ride
@@ -119,7 +121,7 @@ const ResultList = () => {
     setShowLoading(true);
     setTimeout(() => {
       navigate("/ride");
-    }, 2000);
+    }, 800);
   }
 
   const displayWorkday = (workdaysArr) => (
@@ -153,9 +155,9 @@ const ResultList = () => {
 
       {!showLoading && (
         <>
-          <button type="button" onClick={() => setShowFilter(!showFilter)}>
+          {/* <button type="button" onClick={() => setShowFilter(!showFilter)}>
             Filter Results
-          </button>
+          </button> */}
           {showFilter && (
             <>
               <div>
@@ -210,11 +212,7 @@ const ResultList = () => {
               title={
                 <>
                   <Typography variant="body2" color="text.secondary">
-                    800 Markham Road
-                  </Typography>{" "}
-                  to
-                  <Typography variant="body2" color="text.secondary">
-                    18 York Street
+                    800 Markham Road to 18 York Street
                   </Typography>
                 </>
               }
@@ -222,7 +220,8 @@ const ResultList = () => {
           </Card>
           <List>
             <div className="RiderInfo__Items">
-              <h4 className="subHeading">Available Rides</h4>
+              <h4 className="subHeading">Available Rides</h4> 
+              <BsFilterCircle />
               {availableRides.map((ride, index) => {
                 return (
                   <ListItem key={index} className="listItem">
@@ -236,7 +235,7 @@ const ResultList = () => {
                         <>
                           <p>{ride.info.eta}</p>
                           <p>{displayWorkday(ride.info.workday)}</p>
-                          <p>CAD$ {ride.price}</p>
+                          
                         </>
                       }
                     />
@@ -244,7 +243,7 @@ const ResultList = () => {
                       className="listItem__Btn"
                       onClick={handleJoinClick}
                     >
-                      Join
+                      ${ride.price}
                     </ListItemButton>
                   </ListItem>
                 );

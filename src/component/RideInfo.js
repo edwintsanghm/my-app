@@ -16,6 +16,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 import {AiFillStar} from "react-icons/ai"
+import { useState } from "react";
 const ride = {
   info: {
     avatarUrl:
@@ -62,6 +63,10 @@ const passengers = [
 const myAvatarUrl = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
 
 const RideInfo = () => {
+    const [isJoined, setJoined] = useState(false)
+    const handleJoinClick = () => {
+        setJoined(true);
+    }
     const displayRating = (score) => {
         let output = [];
         for(let i = 0; i< score; i++) {
@@ -79,13 +84,11 @@ const RideInfo = () => {
         subheader={"From: " + ride.info.from + " To: " + ride.info.to}
       />
       <CardContent>
+        <Stack direction={"row"} spacing={9}>
         <Typography variant="body2" color="text.secondary">
           <p>
             {ride.info.workday} | {ride.info.eta}
           </p>
-        </Typography>
-
-        <Typography variant="body2" color="text.secondary">
           <p>
             Car Info: {ride.carInfo.make} | {ride.carInfo.number}
           </p>
@@ -93,16 +96,19 @@ const RideInfo = () => {
             Available Seats: {ride.carInfo.freeSeats - 1} / {ride.carInfo.seats}
           </p>
         </Typography>
+
+        {!isJoined && <Button variant="outlined" onClick={handleJoinClick}>Join</Button>}
+        </Stack>
       </CardContent>
     </Card>
     <p className="subHeading rideInfo__Subheading">Passengers</p>
     <List>
-      <ListItem>
+      {isJoined && <ListItem>
         <ListItemAvatar>
           <Avatar src={faker.image.avatar()} />
         </ListItemAvatar>
         <ListItemText primary={"You"} />
-      </ListItem>
+      </ListItem>}
       {passengers.map((passenger, index) => {
         return (
           <ListItem key={index}>
