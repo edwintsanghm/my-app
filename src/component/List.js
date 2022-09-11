@@ -7,10 +7,10 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
-import Stack from '@mui/material/Stack';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import Typography from '@mui/material/Typography';
+import Stack from "@mui/material/Stack";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 
 /*
@@ -109,7 +109,8 @@ const availableRides = [
 const ResultList = () => {
   const [showFilter, setShowFilter] = useState(false);
 
-  const myAvatarUrl = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
+  const myAvatarUrl =
+    "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
 
   let navigate = useNavigate();
 
@@ -117,30 +118,30 @@ const ResultList = () => {
     navigate("/ride");
   }
 
-  const displayWorkday = (workdaysArr) => 
+  const displayWorkday = (workdaysArr) => (
     <Stack direction="row" spacing={1}>
-        {workdaysArr.map(workday => {
-            switch (workday) {
-                case 1:
-                    return <span>Mon</span>;
-                case 2:
-                    return <span>Tue</span>;
-                case 3:
-                    return <span>Wed</span>;
-                case 4:
-                    return <span>Thu</span>;
-                case 5:
-                    return <span>Fri</span>;
-                case 6:
-                    return <span>Sat</span>;
-                case 7:
-                    return <span>Sun</span>;
-                default:
-                    return <></>
-            }
-        })}
-        </Stack>
-
+      {workdaysArr.map((workday) => {
+        switch (workday) {
+          case 1:
+            return <span>Mon</span>;
+          case 2:
+            return <span>Tue</span>;
+          case 3:
+            return <span>Wed</span>;
+          case 4:
+            return <span>Thu</span>;
+          case 5:
+            return <span>Fri</span>;
+          case 6:
+            return <span>Sat</span>;
+          case 7:
+            return <span>Sun</span>;
+          default:
+            return <></>;
+        }
+      })}
+    </Stack>
+  );
 
   return (
     <>
@@ -152,35 +153,34 @@ const ResultList = () => {
           <div>
             <h6>Days</h6>
             <Stack direction="row" spacing={2}>
-                <label>
+              <label>
                 Mon
                 <input name="monday" type="checkbox" />
-                </label>
-                <label>
+              </label>
+              <label>
                 Tue
                 <input name="tuesday" type="checkbox" />
-                </label>
-                <label>
+              </label>
+              <label>
                 Wed
                 <input name="wednesday" type="checkbox" />
-                </label>
-                <label>
+              </label>
+              <label>
                 Thu
                 <input name="thursday" type="checkbox" />
-                </label>
-                <label>
+              </label>
+              <label>
                 Fri
                 <input name="friday" type="checkbox" />
-                </label>
-                <label>
+              </label>
+              <label>
                 Sat
                 <input name="saturaday" type="checkbox" />
-                </label>
-                <label>
+              </label>
+              <label>
                 Sun
                 <input name="sunday" type="checkbox" />
-                </label>
-
+              </label>
             </Stack>
           </div>
           <div>
@@ -198,23 +198,17 @@ const ResultList = () => {
       <>
         <h4 className="subHeading">Your Request</h4>
         <Card>
-            <CardHeader
-                avatar={
-                    <Avatar src={myAvatarUrl} />
-                }
-                title={
-                    <>
+          <CardHeader
+            avatar={<Avatar src={myAvatarUrl} />}
+            title={
+              <>
                 <Typography variant="body2" color="text.secondary">
-                    800 Markham Road
-                </Typography> to 
-                <Typography variant="body2" color="text.secondary">
-                18 York Street
-                </Typography>
-                </>}
-            />
+                  800 Markham Road to 18 York Street
+                </Typography>{" "}
+              </>
+            }
+          />
         </Card>
-
-
 
         <List>
           <div className="RiderInfo__Items">
@@ -225,13 +219,20 @@ const ResultList = () => {
                   <Avatar src={ride.info.avatarUrl} className="listItem__Img" />
                   <ListItemText
                     primary={ride.info.from + " to " + ride.info.to}
-                    secondary={<><p>{ride.info.eta}</p>
+                    secondary={
+                      <>
+                        <p>{ride.info.eta}</p>
                         <p>{displayWorkday(ride.info.workday)}</p>
-                        <p>CAD$ {ride.price}</p></>}
-                    />
-                    <ListItemButton className="listItem__Btn" onClick={handleJoinClick}>
-                        Join
-                    </ListItemButton>
+                        <p className="ridePrice">CAD$ {ride.price}</p>
+                      </>
+                    }
+                  />
+                  <ListItemButton
+                    className="listItem__Btn"
+                    onClick={handleJoinClick}
+                  >
+                    Join
+                  </ListItemButton>
                 </ListItem>
               );
             })}
