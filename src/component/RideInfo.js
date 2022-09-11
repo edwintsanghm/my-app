@@ -61,9 +61,17 @@ const passengers = [
 ];
 const myAvatarUrl = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
 
-const RideInfo = () => (
+const RideInfo = () => {
+    const displayRating = (score) => {
+        let output = [];
+        for(let i = 0; i< score; i++) {
+            output.push(<AiFillStar/>)
+        }
+        return <>{output}</>;
+    }
+    return (
   <>
-    <p className="subHeading rideInfo__Subheading">Your ride info</p>
+    <p className="subHeading rideInfo__Subheading">Your Ride Info</p>
     <Card>
       <CardHeader
         avatar={<Avatar src={ride.info.avatarUrl} />}
@@ -79,7 +87,7 @@ const RideInfo = () => (
 
         <Typography variant="body2" color="text.secondary">
           <p>
-            Car info: {ride.carInfo.make} | {ride.carInfo.number}
+            Car Info: {ride.carInfo.make} | {ride.carInfo.number}
           </p>
           <p>
             Available Seats: {ride.carInfo.freeSeats - 1} / {ride.carInfo.seats}
@@ -87,7 +95,7 @@ const RideInfo = () => (
         </Typography>
       </CardContent>
     </Card>
-    <p className="subHeading rideInfo__Subheading">Passenger</p>
+    <p className="subHeading rideInfo__Subheading">Passengers</p>
     <List>
       <ListItem>
         <ListItemAvatar>
@@ -113,7 +121,7 @@ const RideInfo = () => (
                   >
                     Rating
                   </Typography>
-                  {passenger.rating}
+                  {displayRating(passenger.rating)}
                 </>
               }
             />
@@ -127,7 +135,7 @@ const RideInfo = () => (
       <Button variant="text">Export to Calendar</Button>
     </Stack>
   </>
-);
+)};
 
 export default RideInfo;
 
