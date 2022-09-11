@@ -20,7 +20,8 @@ import Avatar from "@mui/material/Avatar";
 const availableRides = [
   {
     info: {
-      avatarUrl: faker.image.avatar(),
+      avatarUrl:
+        "https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg",
       name: faker.name.firstName(),
       gender: "gender",
       from: "Markham",
@@ -34,8 +35,9 @@ const availableRides = [
       make: "Toyota",
       number: "CXR004",
       seats: 4,
-      freeSeats: 4,
+      freeSeats: 2,
     },
+    price: 10,
   },
   {
     info: {
@@ -55,6 +57,7 @@ const availableRides = [
       seats: 5,
       freeSeats: 2,
     },
+    price: 14,
   },
   {
     info: {
@@ -74,6 +77,7 @@ const availableRides = [
       seats: 4,
       freeSeats: 3,
     },
+    price: 18,
   },
   {
     info: {
@@ -93,6 +97,7 @@ const availableRides = [
       seats: 4,
       freeSeats: 1,
     },
+    price: 10,
   },
 ];
 
