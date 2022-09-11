@@ -32,7 +32,7 @@
   height: 70px;
 }
 .listItem > div:last-child {
-  flex: 0 1 100px;
+  flex: 0 1 60px;
 }
 
 .myInfo {

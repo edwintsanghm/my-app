@@ -7,6 +7,11 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
+import Stack from '@mui/material/Stack';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import Typography from '@mui/material/Typography';
+import { useNavigate } from "react-router-dom";
 
 /*
     List in Driver View
@@ -104,6 +109,39 @@ const availableRides = [
 const ResultList = () => {
   const [showFilter, setShowFilter] = useState(false);
 
+  const myAvatarUrl = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
+
+  let navigate = useNavigate();
+
+  function handleJoinClick() {
+    navigate("/ride");
+  }
+
+  const displayWorkday = (workdaysArr) => 
+    <Stack direction="row" spacing={1}>
+        {workdaysArr.map(workday => {
+            switch (workday) {
+                case 1:
+                    return <span>Mon</span>;
+                case 2:
+                    return <span>Tue</span>;
+                case 3:
+                    return <span>Wed</span>;
+                case 4:
+                    return <span>Thu</span>;
+                case 5:
+                    return <span>Fri</span>;
+                case 6:
+                    return <span>Sat</span>;
+                case 7:
+                    return <span>Sun</span>;
+                default:
+                    return <></>
+            }
+        })}
+        </Stack>
+
+
   return (
     <>
       <button type="button" onClick={() => setShowFilter(!showFilter)}>
@@ -113,49 +151,37 @@ const ResultList = () => {
         <>
           <div>
             <h6>Days</h6>
+            <Stack direction="row" spacing={2}>
+                <label>
+                Mon
+                <input name="monday" type="checkbox" />
+                </label>
+                <label>
+                Tue
+                <input name="tuesday" type="checkbox" />
+                </label>
+                <label>
+                Wed
+                <input name="wednesday" type="checkbox" />
+                </label>
+                <label>
+                Thu
+                <input name="thursday" type="checkbox" />
+                </label>
+                <label>
+                Fri
+                <input name="friday" type="checkbox" />
+                </label>
+                <label>
+                Sat
+                <input name="saturaday" type="checkbox" />
+                </label>
+                <label>
+                Sun
+                <input name="sunday" type="checkbox" />
+                </label>
 
-            <label>
-              {" "}
-              Mon
-              <input name="monday" type="checkbox" />
-            </label>
-            <br />
-            <label>
-              {" "}
-              Tue
-              <input name="tuesday" type="checkbox" />
-            </label>
-            <br />
-            <label>
-              {" "}
-              Wed
-              <input name="wednesday" type="checkbox" />
-            </label>
-            <br />
-            <label>
-              {" "}
-              Thu
-              <input name="thursday" type="checkbox" />
-            </label>
-            <br />
-            <label>
-              {" "}
-              Fri
-              <input name="friday" type="checkbox" />
-            </label>
-            <br />
-            <label>
-              {" "}
-              Sat
-              <input name="saturaday" type="checkbox" />
-            </label>
-            <br />
-            <label>
-              {" "}
-              Sun
-              <input name="sunday" type="checkbox" />
-            </label>
-            <br />
+            </Stack>
           </div>
           <div>
             <h6>Time</h6>
@@ -171,14 +197,24 @@ const ResultList = () => {
 
       <>
         <h4 className="subHeading">Your Request</h4>
-        <div className="myInfo">
-          <Avatar src={faker.image.avatar()} />
-          <div className="myInfo__Text">
-            <p>Name: Edwin</p>
-            <p>From: 1800 Richmond Hill</p>
-            <p>To: 18 York Street</p>
-          </div>
-        </div>
+        <Card>
+            <CardHeader
+                avatar={
+                    <Avatar src={myAvatarUrl} />
+                }
+                title={
+                    <>
+                <Typography variant="body2" color="text.secondary">
+                    800 Markham Road
+                </Typography> to 
+                <Typography variant="body2" color="text.secondary">
+                18 York Street
+                </Typography>
+                </>}
+            />
+        </Card>
+
+
 
         <List>
           <div className="RiderInfo__Items">
@@ -187,23 +223,15 @@ const ResultList = () => {
               return (
                 <ListItem key={index} className="listItem">
                   <Avatar src={ride.info.avatarUrl} className="listItem__Img" />
-                  <div>
-                    <p>{ride.info.name}</p>
-                    <p>{ride.info.from}</p>
-                    <p>{ride.info.to}</p>
-                    <p>{ride.info.workday}</p>
-                    <p>{ride.info.eta}</p>
-                  </div>
-                  <div>
-                    <p>{ride.carInfo.make}</p>
-                    <p>{ride.carInfo.number}</p>
-                    <p>
-                      {ride.carInfo.freeSeats} / {ride.carInfo.seats}
-                    </p>
-                  </div>
-                  <ListItemButton className="listItem__Btn">
-                    <Link to="/ride">Request</Link>
-                  </ListItemButton>
+                  <ListItemText
+                    primary={ride.info.from + " to " + ride.info.to}
+                    secondary={<><p>{ride.info.eta}</p>
+                        <p>{displayWorkday(ride.info.workday)}</p>
+                        <p>CAD$ {ride.price}</p></>}
+                    />
+                    <ListItemButton className="listItem__Btn" onClick={handleJoinClick}>
+                        Join
+                    </ListItemButton>
                 </ListItem>
               );
             })}

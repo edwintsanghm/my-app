@@ -12,6 +12,8 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 const ride = {
     info: {avatarUrl: "https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg", name: faker.name.firstName(), gender:"gender", from: "Markham", to: "18 York Street", workday:"Mon - Fri", eta: "9:00 am", rating: 4},
@@ -23,6 +25,7 @@ const passengers = [
     {avatarUrl: faker.image.avatar(), name: faker.name.firstName(), gender:"gender", from: "Markham", to: "18 York Street", workday:"Mon - Fri", eta: "9:00 am", rating: 4},
     {avatarUrl: faker.image.avatar(), name: faker.name.firstName(), gender:"gender", from: "700 Markham Road", to: "25 York Street", workday:"Mon, Tue, Thu, Fri", eta: "9:10 am", rating: 5},
 ];
+const myAvatarUrl = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
 
 const RideInfo = () => 
 <>
@@ -87,6 +90,10 @@ Passenger
 
 <img src={mapView} width="100%"/>
 
+<Stack className="action__Btn" spacing={2} direction="row">
+    <Button variant="text">Share Your Ride</Button>
+    <Button variant="text">Export to Calendar</Button>
+</Stack>
 </>
 
 export default RideInfo;
