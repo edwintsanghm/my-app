@@ -7,6 +7,7 @@ import "./css/layout.css";
 import "./css/form.css";
 import "./css/list.css";
 import "./css/ride.css";
+import "./css/loading.scss";
 
 import RideInfo from "./component/RideInfo";
 
