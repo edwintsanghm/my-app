@@ -165,25 +165,23 @@ const ResultList = () => {
       )}
 
       <>
-        <h4>Your Request</h4>
-        <ListItem>
+        <h4 className="subHeading">Your Request</h4>
+        <div className="myInfo">
           <Avatar src={faker.image.avatar()} />
-          <div>
+          <div className="myInfo__Text">
             <p>Name: Edwin</p>
             <p>From: 1800 Richmond Hill</p>
             <p>To: 18 York Street</p>
           </div>
-        </ListItem>
-
-        <h4>Available Rides</h4>
+        </div>
 
         <List>
           <div className="RiderInfo__Items">
-            {" "}
+            <h4 className="subHeading">Available Rides</h4>
             {availableRides.map((ride, index) => {
               return (
-                <ListItem key={index}>
-                  <Avatar src={ride.info.avatarUrl} />
+                <ListItem key={index} className="listItem">
+                  <Avatar src={ride.info.avatarUrl} className="listItem__Img" />
                   <div>
                     <p>{ride.info.name}</p>
                     <p>{ride.info.from}</p>
@@ -198,7 +196,7 @@ const ResultList = () => {
                       {ride.carInfo.freeSeats} / {ride.carInfo.seats}
                     </p>
                   </div>
-                  <ListItemButton>
+                  <ListItemButton className="listItem__Btn">
                     <Link to="/ride">Request</Link>
                   </ListItemButton>
                 </ListItem>
