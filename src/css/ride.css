@@ -1,3 +1,13 @@
-.action__Btn{
-    margin-top: 25px;
+.action__Btn {
+  margin-top: 25px;
+}
+
+.rideInfo__Subheading {
+  margin-top: 1em;
+}
+
+.rideInfo__Img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
 }

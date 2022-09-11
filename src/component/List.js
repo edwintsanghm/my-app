@@ -7,10 +7,10 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
-import Stack from '@mui/material/Stack';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import Typography from '@mui/material/Typography';
+import Stack from "@mui/material/Stack";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 /*
@@ -110,139 +110,149 @@ const ResultList = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
 
-  const myAvatarUrl = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
+  const myAvatarUrl =
+    "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
 
   let navigate = useNavigate();
 
   function handleJoinClick() {
     setShowLoading(true);
     setTimeout(() => {
-        navigate("/ride");
-    }, 2000)
+      navigate("/ride");
+    }, 2000);
   }
 
-  const displayWorkday = (workdaysArr) => 
+  const displayWorkday = (workdaysArr) => (
     <Stack direction="row" spacing={1}>
-        {workdaysArr.map(workday => {
-            switch (workday) {
-                case 1:
-                    return <span>Mon</span>;
-                case 2:
-                    return <span>Tue</span>;
-                case 3:
-                    return <span>Wed</span>;
-                case 4:
-                    return <span>Thu</span>;
-                case 5:
-                    return <span>Fri</span>;
-                case 6:
-                    return <span>Sat</span>;
-                case 7:
-                    return <span>Sun</span>;
-                default:
-                    return <></>
-            }
-        })}
-        </Stack>
-
+      {workdaysArr.map((workday) => {
+        switch (workday) {
+          case 1:
+            return <span>Mon</span>;
+          case 2:
+            return <span>Tue</span>;
+          case 3:
+            return <span>Wed</span>;
+          case 4:
+            return <span>Thu</span>;
+          case 5:
+            return <span>Fri</span>;
+          case 6:
+            return <span>Sat</span>;
+          case 7:
+            return <span>Sun</span>;
+          default:
+            return <></>;
+        }
+      })}
+    </Stack>
+  );
 
   return (
     <>
-    {showLoading && <Loading/>}
+      {showLoading && <Loading />}
 
-    {!showLoading && 
+      {!showLoading && (
         <>
-            <button type="button" onClick={() => setShowFilter(!showFilter)}>
-                Filter Results
-            </button>
-            {showFilter && (
+          <button type="button" onClick={() => setShowFilter(!showFilter)}>
+            Filter Results
+          </button>
+          {showFilter && (
+            <>
+              <div>
+                <h6>Days</h6>
+                <Stack direction="row" spacing={2}>
+                  <label>
+                    Mon
+                    <input name="monday" type="checkbox" />
+                  </label>
+                  <label>
+                    Tue
+                    <input name="tuesday" type="checkbox" />
+                  </label>
+                  <label>
+                    Wed
+                    <input name="wednesday" type="checkbox" />
+                  </label>
+                  <label>
+                    Thu
+                    <input name="thursday" type="checkbox" />
+                  </label>
+                  <label>
+                    Fri
+                    <input name="friday" type="checkbox" />
+                  </label>
+                  <label>
+                    Sat
+                    <input name="saturaday" type="checkbox" />
+                  </label>
+                  <label>
+                    Sun
+                    <input name="sunday" type="checkbox" />
+                  </label>
+                </Stack>
+              </div>
+              <div>
+                <h6>Time</h6>
+                <label>
+                  ETA
+                  <input name="eta" type="number" />
+                </label>
+
+                <br />
+              </div>
+            </>
+          )}
+
+          <h4 className="subHeading">Your Request</h4>
+          <Card>
+            <CardHeader
+              avatar={<Avatar src={myAvatarUrl} />}
+              title={
                 <>
-                <div>
-                    <h6>Days</h6>
-                    <Stack direction="row" spacing={2}>
-                        <label>
-                        Mon
-                        <input name="monday" type="checkbox" />
-                        </label>
-                        <label>
-                        Tue
-                        <input name="tuesday" type="checkbox" />
-                        </label>
-                        <label>
-                        Wed
-                        <input name="wednesday" type="checkbox" />
-                        </label>
-                        <label>
-                        Thu
-                        <input name="thursday" type="checkbox" />
-                        </label>
-                        <label>
-                        Fri
-                        <input name="friday" type="checkbox" />
-                        </label>
-                        <label>
-                        Sat
-                        <input name="saturaday" type="checkbox" />
-                        </label>
-                        <label>
-                        Sun
-                        <input name="sunday" type="checkbox" />
-                        </label>
-
-                    </Stack>
-                </div>
-                <div>
-                    <h6>Time</h6>
-                    <label>
-                    ETA
-                    <input name="eta" type="number" />
-                    </label>
-
-                    <br />
-                </div>
-                </>
-            )}
-
-            <h4 className="subHeading">Your Request</h4>
-            <Card>
-                <CardHeader
-                    avatar={
-                        <Avatar src={myAvatarUrl} />
-                    }
-                    title={
-                        <>
-                    <Typography variant="body2" color="text.secondary">
-                        800 Markham Road
-                    </Typography> to 
-                    <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary">
+                    800 Markham Road
+                  </Typography>{" "}
+                  to
+                  <Typography variant="body2" color="text.secondary">
                     18 York Street
-                    </Typography>
-                    </>}
-                />
-            </Card>
-            <List>
+                  </Typography>
+                </>
+              }
+            />
+          </Card>
+          <List>
             <div className="RiderInfo__Items">
-                <h4 className="subHeading">Available Rides</h4>
-                {availableRides.map((ride, index) => {
+              <h4 className="subHeading">Available Rides</h4>
+              {availableRides.map((ride, index) => {
                 return (
-                    <ListItem key={index} className="listItem">
-                    <Avatar src={ride.info.avatarUrl} className="listItem__Img" />
+                  <ListItem key={index} className="listItem">
+                    <Avatar
+                      src={ride.info.avatarUrl}
+                      className="listItem__Img"
+                    />
                     <ListItemText
-                        primary={ride.info.from + " to " + ride.info.to}
-                        secondary={<><p>{ride.info.eta}</p>
-                            <p>{displayWorkday(ride.info.workday)}</p>
-                            <p>CAD$ {ride.price}</p></>}
-                        />
-                        <ListItemButton className="listItem__Btn" onClick={handleJoinClick}>
-                            Join
-                        </ListItemButton>
-                    </ListItem>
+                      primary={ride.info.from + " to " + ride.info.to}
+                      secondary={
+                        <>
+                          <p>{ride.info.eta}</p>
+                          <p>{displayWorkday(ride.info.workday)}</p>
+                          <p>CAD$ {ride.price}</p>
+                        </>
+                      }
+                    />
+                    <ListItemButton
+                      className="listItem__Btn"
+                      onClick={handleJoinClick}
+                    >
+                      Join
+                    </ListItemButton>
+                  </ListItem>
                 );
-                })}
+              })}
             </div>
-            </List>
+          </List>
         </>
-    }
+      )}
     </>
   );
 };

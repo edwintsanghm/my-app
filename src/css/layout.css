@@ -72,6 +72,11 @@ body {
   padding: 1em;
 }
 
+.subHeading {
+  font-size: var(--fs-tri);
+  font-weight: var(--fw-tri);
+}
+
 @media screen and (min-width: 800px) {
   :root {
     --fs-prmy: 1rem;
