@@ -14,12 +14,6 @@ import RideInfo from "./component/RideInfo";
 const App = () => {
   return (
     <div className="App">
-      <nav>
-        <Link to="/">About</Link>
-        <Link to="/form">Form</Link>
-        <Link to="/list">List</Link>
-        <Link to="/ride">Ride</Link>
-      </nav>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="form" element={<Form />} />

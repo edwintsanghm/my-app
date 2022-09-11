@@ -15,6 +15,7 @@ import CardActions from '@mui/material/CardActions';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
+import {AiFillStar} from "react-icons/ai"
 const ride = {
     info: {avatarUrl: "https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg", name: faker.name.firstName(), gender:"gender", from: "Markham", to: "18 York Street", workday:"Mon - Fri", eta: "9:00 am", rating: 4},
     carInfo: {model: "model", make: "Toyota", number: "CXR004", seats: 4, freeSeats: 2},  
@@ -27,74 +28,74 @@ const passengers = [
 ];
 const myAvatarUrl = "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/851.jpg";
 
-const RideInfo = () => 
-<>
-Your Ride Info
-
-<Card>
-    <CardHeader
-        avatar={
-            <Avatar src={ride.info.avatarUrl} />
+const RideInfo = () => {
+    const displayRating = (score) => {
+        let output = [];
+        for(let i = 0; i< score; i++) {
+            output.push(<AiFillStar/>)
         }
-        title={ride.info.name}
-        subheader={"From: "+ride.info.from + " To: " + ride.info.to}
-      />
-    <CardContent>
-        <Typography variant="body2" color="text.secondary">
-            <p>{ride.info.workday} | {ride.info.eta}</p>
-        </Typography>
+        return <>{output}</>;
+    }
+    return (
+    <>
+    Your Ride Info
 
-        <Typography variant="body2" color="text.secondary">
-            <p>Car info: {ride.carInfo.make} | {ride.carInfo.number}</p>
-            <p>Available Seats: {ride.carInfo.freeSeats - 1} / {ride.carInfo.seats}</p>
-        </Typography>
-    </CardContent>
-</Card>
-
-Passenger
-<List>
-    <ListItem>
-        <ListItemAvatar>
-            <Avatar src={faker.image.avatar()} />
-        </ListItemAvatar>
-        <ListItemText
-            primary={"You"}
+    <Card>
+        <CardHeader
+            avatar={
+                <Avatar src={ride.info.avatarUrl} />
+            }
+            title={ride.info.name}
+            subheader={"From: "+ride.info.from + " To: " + ride.info.to}
         />
-    </ListItem>
-{
-    passengers.map((passenger, index) => {
-        return <ListItem key={index}>
+        <CardContent>
+            <Typography variant="body2" color="text.secondary">
+                <p>{ride.info.workday} | {ride.info.eta}</p>
+            </Typography>
+
+            <Typography variant="body2" color="text.secondary">
+                <p>Car info: {ride.carInfo.make} | {ride.carInfo.number}</p>
+                <p>Available Seats: {ride.carInfo.freeSeats - 1} / {ride.carInfo.seats}</p>
+            </Typography>
+        </CardContent>
+    </Card>
+
+    Passenger
+    <List>
+        <ListItem>
             <ListItemAvatar>
-                <Avatar src={passenger.avatarUrl} />
+                <Avatar src={faker.image.avatar()} />
             </ListItemAvatar>
             <ListItemText
-                primary={passenger.name}
-                secondary={
-                    <>
-                        <Typography
-                            sx={{ display: 'inline' }}
-                            component="span"
-                            variant="body2"
-                            color="text.primary"
-                        >
-                            Rating
-                        </Typography>
-                        {passenger.rating}
-                    </>
-                }
+                primary={"You"}
             />
         </ListItem>
-    })
-}
-</List>
+    {
+        passengers.map((passenger, index) => {
+            return <ListItem key={index}>
+                <ListItemAvatar>
+                    <Avatar src={passenger.avatarUrl} />
+                </ListItemAvatar>
+                <ListItemText
+                    primary={passenger.name}
+                    secondary={
+                        <>
+                            {displayRating(passenger.rating)}
+                        </>
+                    }
+                />
+            </ListItem>
+        })
+    }
+    </List>
 
-<img src={mapView} width="100%"/>
+    <img src={mapView} width="100%"/>
 
-<Stack className="action__Btn" spacing={2} direction="row">
-    <Button variant="text">Share Your Ride</Button>
-    <Button variant="text">Export to Calendar</Button>
-</Stack>
-</>
+    <Stack className="action__Btn" spacing={2} direction="row">
+        <Button variant="text">Share Your Ride</Button>
+        <Button variant="text">Export to Calendar</Button>
+    </Stack>
+</>)}
 
 export default RideInfo;
 
