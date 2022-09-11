@@ -1,5 +1,23 @@
+.formHeader {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.formHeader__title {
+  font-size: var(--fs-four);
+  font-weight: var(--fw-tri);
+  align-self: flex-end;
+}
+
+.formHeader__Img {
+  max-height: 200px;
+}
+
 .DriverSection {
-  min-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 1em;
 
@@ -8,14 +26,8 @@
   justify-content: center;
   align-items: center;
 
-  border: 1px solid red;
-
   border-radius: 10px;
-}
-
-.title {
-  font-size: var(--fs-four);
-  font-weight: var(--fw-tri);
+  /* box-shadow: var(--box-shadow); */
 }
 
 .passengerLocation {
@@ -76,9 +88,11 @@
   display: flex;
   gap: 1em;
   justify-content: center;
+  margin-bottom: 0.75em;
 }
 
-.drivingMode__Btn {
+.drivingMode__Btn,
+.submitBtn {
   border: none;
   padding: 0.55em 1em;
   border-radius: 5px;
@@ -91,28 +105,21 @@
   transition: 0.25s;
 }
 
-.drivingMode__Btn:hover {
+.drivingMode__Btn:hover,
+.submitBtn:hover {
   background-color: var(--col-background-prmy);
   outline: 2px solid var(--col-acc-prmy);
   color: var(--col-text-prmy);
 }
 
 .submitBtn {
-  border: none;
-  padding: 0.55em 1em;
-  border-radius: 5px;
-  width: max-content;
-  align-self: flex-end;
-
-  background-color: var(--col-acc-prmy);
-  color: var(--col-text-sec);
-
-  cursor: pointer;
-  transition: 0.25s;
+  align-self: center;
+  width: 100%;
 }
 
-.submitBtn:hover {
-  background-color: var(--col-background-prmy);
-  outline: 2px solid var(--col-acc-prmy);
-  color: var(--col-text-prmy);
+@media screen and (min-width: 768px) {
+  .submitBtn {
+    align-self: flex-end;
+    width: max-content;
+  }
 }

@@ -5,6 +5,7 @@ import List from "./component/List";
 import Form from "./component/Form";
 import "./css/layout.css";
 import "./css/form.css";
+import "./css/list.css";
 import RideInfo from "./component/RideInfo";
 
 const App = () => {

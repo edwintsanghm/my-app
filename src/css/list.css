@@ -1,0 +1,74 @@
+.RiderInfo__Items {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 1em;
+
+  place-items: center;
+
+  max-width: 1440px;
+}
+
+.subHeading {
+  font-size: var(--fs-tri);
+  font-weight: var(--fw-tri);
+}
+
+.listItem {
+  gap: 1em;
+  justify-content: space-around !important;
+  align-items: center;
+
+  background-color: var(--col-background-sec);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.listItem > .listItem__Img {
+  width: 70px;
+  height: 70px;
+}
+.listItem > div:last-child {
+  flex: 0 1 100px;
+}
+
+.myInfo {
+  padding: 0.25em;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+
+  box-shadow: var(--box-shadow);
+  background-color: var(--col-background-prmy);
+
+  width: 100%;
+  max-width: 1440px;
+
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.myInfo__Text {
+  flex: 1;
+}
+
+.myInfo > div {
+  margin: 0 auto;
+
+  height: 50px;
+  width: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .myInfo {
+    flex-direction: row;
+    width: 50%;
+    padding: 2em;
+  }
+}
